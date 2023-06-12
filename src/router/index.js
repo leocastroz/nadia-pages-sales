@@ -1,5 +1,8 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import HomePage from '../pages/HomePage.vue'
+import { createRouter, createWebHistory } from 'vue-router';
+import HomePage from '../pages/HomePage.vue';
+import AboutView from '../pages/AboutView.vue';
+import PexPage from '../pages/PexPage.vue';
+import NotFound from '../components/NotFound.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -7,28 +10,31 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomePage
+      component: HomePage,
     },
     {
       path: '/about',
       name: 'about',
-      component: () => import('../pages/AboutView.vue')
+      component: AboutView,
     },
     {
       path: '/pex',
       name: 'pex',
-      component: () => import('../pages/PexPage.vue')
-    }
-  ]
-})
+      component: PexPage,
+    },
+    {
+      path: '/:catchAll(.*)',
+      name: 'not-found',
+      component: NotFound,
+      beforeEnter: (to, from, next) => {
+        if (to.path === '/') {
+          next('/pex');
+        } else {
+          next();
+        }
+      },
+    },
+  ],
+});
 
-const rewriteRoutes = [
-  { source: '/', destination: '/' },
-  { source: '/pex', destination: '../pages/PexPage.vue' }
-]
-
-rewriteRoutes.forEach(route => {
-  router.addRoute(route)
-})
-
-export default router
+export default router;
