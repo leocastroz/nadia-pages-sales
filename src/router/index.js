@@ -22,4 +22,13 @@ const router = createRouter({
   ]
 })
 
+const rewriteRoutes = [
+  { source: '/', destination: '/' },
+  { source: '/pex', destination: '../pages/PexPage.vue' }
+]
+
+rewriteRoutes.forEach(route => {
+  router.addRoute(route)
+})
+
 export default router
