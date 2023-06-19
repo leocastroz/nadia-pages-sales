@@ -1,7 +1,7 @@
 <template>
 	<div class="top-side">
 		<div class="title">
-			<h1>P E X</h1>
+			<h1 class="power">O PODER DA AUTOESTIMA</h1>
 		</div>
 		<div class="container">
 			<h1>O PODER DA AUTOESTIMA</h1>
@@ -23,7 +23,6 @@
 		<div class="footer-side">
 			<a href="" class="pulse-button">QUERO MEU INGRESSO COM DESCONTO</a>
 		</div>
-		
 	</div>
 </template>
 
@@ -31,11 +30,11 @@
 
 <style scoped>
 .top-side {
-	background-image: url('https://recursos.puravida.com.br/i/lp-suplementar/desk/bg-conhecimento-last.jpg');
+	background-image: url('../../assets/pex/background.svg');	
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center center;
-	width: 100vw;
+	width: 100%;
 	height: 100vh;
 }
 
@@ -71,10 +70,11 @@
   }
 }
 
-h1 {
+.power {
 	color: #FF1E97;
 	text-shadow: 0 0 20px #FF005B;
-	padding: 30px 60px;
+	padding: 30px 40px;
+	font-size: 15px;
 }
 
 .container {
